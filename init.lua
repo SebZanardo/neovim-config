@@ -1,6 +1,9 @@
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 vim.opt.colorcolumn = '80,99'
 vim.opt.relativenumber = true
+vim.opt.wrap = false
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -147,7 +150,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
+  'godlygeek/tabular',
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
