@@ -118,6 +118,13 @@ do
   -- Don't show the mode, since it's already in the status line
   vim.o.showmode = false
 
+  vim.opt.tabstop = 4
+  vim.opt.shiftwidth = 4
+  vim.opt.expandtab = true
+  vim.opt.colorcolumn = '80,99'
+  vim.opt.relativenumber = true
+  vim.opt.wrap = false
+
   -- Sync clipboard between OS and Neovim.
   --  Schedule the setting after `UiEnter` because it can increase startup-time.
   --  Remove this option if you want your OS clipboard to remain independent.
@@ -399,6 +406,8 @@ do
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
   require('todo-comments').setup { signs = false }
+
+  vim.pack.add { gh 'godlygeek/tabular' }
 
   -- [[ mini.nvim ]]
   --  A collection of various small independent plugins/modules
@@ -686,7 +695,9 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    -- clangd = {},
+    clangd = {
+      cmd = { 'clangd', '--header-insertion=never' },
+    },
     -- gopls = {},
     -- pyright = {},
     -- rust_analyzer = {},
